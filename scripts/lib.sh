@@ -2,7 +2,7 @@
 set -euo pipefail
 
 need_cmd() {
-  command -v "$1" >/dev/null 2>&1 || { echo "FEHLT: $1"; exit 1; }
+  command -v "$1" >/dev/null 2>&1 || { echo "MISSING: $1"; exit 1; }
 }
 
 ensure_line_in_file() {

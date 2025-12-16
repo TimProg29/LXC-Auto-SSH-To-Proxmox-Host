@@ -16,21 +16,21 @@ AUTHORIZED_KEYS="$SSH_DIR/authorized_keys"
 SUDOERS_FILE="/etc/sudoers.d/$PVE_USER-pct"
 
 if ! id "$PVE_USER" >/dev/null 2>&1; then
-  echo "→ Erstelle User: $PVE_USER"
+  echo "→ Creating user: $PVE_USER"
   useradd -m -s /bin/bash "$PVE_USER"
 fi
 
-echo "→ Richte SSH-Verzeichnis ein"
+echo "→ Setting up SSH directory"
 mkdir -p "$SSH_DIR"
 chmod 700 "$SSH_DIR"
 touch "$AUTHORIZED_KEYS"
 chmod 600 "$AUTHORIZED_KEYS"
 chown -R "$PVE_USER:$PVE_USER" "$SSH_DIR"
 
-echo "→ Setze sudo-Regel für pct (NOPASSWD)"
+echo "→ Setting sudo rule for pct (NOPASSWD)"
 cat > "$SUDOERS_FILE" <<EOF
 $PVE_USER ALL=(root) NOPASSWD: /usr/sbin/pct
 EOF
 chmod 440 "$SUDOERS_FILE"
 
-echo "✔ Bootstrap fertig (User: $PVE_USER)"
+echo "✔ Bootstrap complete (User: $PVE_USER)"
