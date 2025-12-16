@@ -119,12 +119,6 @@ chmod 700 /home/lxcctl/.ssh
 chmod 600 /home/lxcctl/.ssh/authorized_keys
 ```
 
-### `ERROR: no command specified`
-- A `command="..."` entry still exists in `authorized_keys`
-- Remove it to allow normal SSH command execution
-
----
-
 ## License
 
 MIT License
