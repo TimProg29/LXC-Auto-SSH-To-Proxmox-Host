@@ -46,7 +46,7 @@ chmod 644 '$KEY_PUB'
 PUBKEY="$(pct exec "$LXC_ID" -- bash -lc "cat '$KEY_PUB'")"
 
 # Optional: pro Key einschränken (empfohlen)
-RESTRICTED_LINE="command=\"sudo /usr/sbin/pct\",no-port-forwarding,no-agent-forwarding,no-X11-forwarding,no-pty $PUBKEY"
+RESTRICTED_LINE="no-port-forwarding,no-agent-forwarding,no-X11-forwarding,no-pty $PUBKEY"
 
 echo "→ Trage Key in $AUTHORIZED_KEYS ein (User: $PVE_USER)"
 mkdir -p "$SSH_DIR"
