@@ -77,7 +77,7 @@ sudo ./scripts/create-key.sh 108 cloudkey
 
 ---
 
-## Testing the Connection
+## Testing the Connections
 
 Inside the LXC:
 ```bash
